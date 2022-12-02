@@ -1,0 +1,68 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block main %}
+{% load custom_tags %}
+
+
+
+
+
+<div style="display: flex; flex-wrap: wrap;">
+  
+{% side_menu request.user %}
+
+{% for msg in messages %}
+    
+    {% if msg.tag == error %}
+  <div class="success-message-box-style">
+    {{ msg }}
+  </div>
+  {% endif %}
+{% endfor %}
+
+
+<div style="padding: 20px;width: 50%;margin: auto;">    
+  <h1 style="font-size: 28px;text-align: center;padding: 10px;">افزودن زبان</h1>
+<form method="post" style="border: 1px solid;border-radius: 12px;padding: 15px;">
+  {% csrf_token %}
+    <div class="mb-6">
+      {{form.as_p}}
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form>
+</div>
+
+<div style="padding: 20px;width: 50%;margin: auto;">  
+  <h1 style="text-align: center; font-size:28px; padding:20px;">لیست زبان های داخل رزومه شما</h1>  
+{% for language in list_of_languages %}
+  <div style="padding: 10px; border: 1px solid;">
+    <div style="display: inline-block;width: 50%;padding: 15px;">
+      {{language.title}}
+    </div>
+    <div style="display: inline-block;width: 40%;">
+      {% if language.level == 1 %}
+        ضعیف
+      {% elif language.level == 2 %}
+        متوسط
+      {% elif language.level == 3 %}
+        خوب
+      {% elif language.level == 4 %}
+        عالی
+      {% endif %}
+    </div>
+    <form method="post" action="{% url 'resume:delete_language' %}">
+      {% csrf_token %}
+      <input type="hidden" name='id' value="{{ language.id }}">
+      <button type="submit" class="remove-btn">
+      حذف
+    
+    </form>
+    
+  </div>  
+{% endfor %}
+</div>
+</div>
+</div>
+
+{% endblock %}

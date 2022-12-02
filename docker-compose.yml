@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  django-app:
+    build: ./cvbuilder/
+    expose:
+        - "8000"
+    volumes:
+      - type: volume
+        source: media
+        target: /app/media/
+        
+      - type: bind
+        source: ./staticfiles
+        target: /app/static/
+
+      - type: bind
+        source: ./cvbuilder
+        target: /app/core/
+        
+    env_file:
+      - .env
+    depends_on:
+      - db
+    
+  db:
+    image: postgres
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /var/lib/postgresql/data
+    environment:
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+  nginx:
+     build: ./nginx/
+     volumes:
+      - type: bind
+        source: ./staticfiles
+        target: /app/static/
+     ports:
+        - "1337:80"
+     depends_on:
+        - django-app
+volumes:
+  media:
+  dbdata:
+  

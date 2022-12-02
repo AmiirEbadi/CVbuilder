@@ -1,0 +1,29 @@
+.form-style{
+    padding: 10px;
+}
+
+.error-message-box-style{
+    width: 50%;
+    text-align: center;
+    margin: 10px auto;
+    background: #e997979e;
+    height: 50px;
+}
+
+.success-message-box-style{
+    width: 50%;
+    text-align: center;
+    margin: 10px auto;
+    background: #7be6b09e;
+    height: 50px;
+}
+
+.remove-btn{
+    background-color:rgb(212, 93, 93) !important;
+    padding:5px;
+    border-radius:20px
+}
+
+.sidenav{
+    width: '250px';
+}

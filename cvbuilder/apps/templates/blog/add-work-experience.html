@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block main %}
+
+{% load custom_tags %}
+ 
+<div style="display: flex; flex-wrap: wrap;">
+{% side_menu request.user %}
+
+{% for msg in messages %}
+
+  {% if msg.tag == error %}
+  <div class="success-message-box-style">
+    {{ msg }}
+  </div>
+  {% endif %}
+{% endfor %}
+
+
+<div style="padding: 20px;width: 50%;margin: auto;">    
+  <h1 style="font-size: 28px;text-align: center;padding: 10px;">افزودن سابقه کاری</h1>
+<form method="post" style="border: 1px solid;border-radius: 12px;padding: 15px;">
+  {% csrf_token %}
+    <div class="mb-6">
+      {% for field in form %}
+        {{ field.label }}
+        <div>
+          {% for error in field.errors %}
+          <div style="background-color: rgb(209, 116, 116); text-align:center; padding:5px">
+            {{error}}
+          </div>
+          {% endfor %}
+          {{ field }}
+        </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form>
+</div>
+
+<div style="padding: 20px;width: 50%;margin: auto;">  
+  <h1 style="text-align: center; font-size:28px; padding:20px;">لیست سابقه های داخل رزومه شما</h1>  
+{% for work in list_user_work_experience %}
+  <div style="padding: 10px; border: 1px solid;">
+    <div style="display: inline-block;width: 50%;padding: 15px;">
+      {{work.title}}
+    </div>
+    
+    <form method="post" action="{% url 'resume:delete_work_experience' %}">
+      {% csrf_token %}
+      <input type="hidden" name='id' value="{{ work.id }}">
+      <button type="submit" class="remove-btn">
+      حذف
+    
+    </form>
+    
+  </div>  
+{% endfor %}
+</div>
+</div>
+</div>
+
+{% endblock %}

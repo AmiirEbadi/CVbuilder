@@ -1,0 +1,63 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center" style="height: 630px;">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="text-align: right;">همین الان
+        <br class="hidden lg:inline-block">رزومه خود را بسازید 
+      </h1>
+      <p class="mb-8 leading-relaxed">
+      همین الان می توانید رزومه خود را از طریق رزومه ساز انلاین ما بسازید.
+      </p>
+      <div class="flex justify-center">
+        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+      </div>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <img class="object-cover object-center rounded" alt="hero" src="{% static 'img/carousel/download.jpeg' %}">
+    </div>
+  </div>
+</section>
+
+<div style="display: flex;
+justify-content: space-between;
+padding: 20px;
+margin: 10px;
+background-color: cadetblue;
+">
+
+<a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+</a>
+
+<a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+</a>
+
+<a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+</a>
+</div>
+
+<div style="padding: 20px;margin: 10px;">
+    <h1 style="text-align:center;font-size:28px;margin: 10px;">what is cvbuilder?</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ornare egestas maximus. Vestibulum quis diam non justo accumsan dapibus.
+        Nunc fermentum arcu non faucibus molestie.
+        Morbi euismod lectus nec ante fermentum, nec egestas orci luctus. Curabitur metus orci, sagittis at sem nec, tempus pulvinar massa. Donec auctor vel justo sit amet consequat. Praesent ultricies dictum pretium.
+        Sed quam velit, bibendum nec dictum sed, mattis in velit.
+        Phasellus bibendum diam ac ultrices vulputate.
+        Morbi porttitor ante sit amet efficitur dictum. Vivamus blandit nec nunc et viverra.
+        Nunc pharetra augue non nibh posuere lacinia. Aliquam eget suscipit risus.
+        Quisque venenatis porta tellus nec elementum. Sed hendrerit urna venenatis lacus sodales, a tempus orci commodo. 
+        Integer interdum tellus nibh, sed sagittis purus laoreet et. In et risus elementum, auctor est id, semper magna. Donec nec sapien et tortor rutrum pellentesque vitae quis arcu. Nunc finibus, felis in interdum tincidunt, sapien velit egestas lectus, ac egestas lorem nisi vitae felis.
+    </p>
+</div>
+
+{% endblock %}
