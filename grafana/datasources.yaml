@@ -1,0 +1,13 @@
+# grafana/datasources.yaml
+apiVersion: 1
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    url: db:5432
+    user: postgres
+    secureJsonData:
+      password: postgres
+    database: postgres
+    jsonData:
+      sslmode: "disable"
+      version: "9.6"
