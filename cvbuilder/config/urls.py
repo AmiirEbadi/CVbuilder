@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from config.initial import initialize
 
-initialize()
+# initialize()
 
 
 urlpatterns = [
