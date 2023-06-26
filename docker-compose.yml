@@ -41,7 +41,7 @@ services:
         source: ./staticfiles
         target: /app/static/
     ports:
-      - "1337:80"
+      - "8080:80"
     depends_on:
       - django-app
 
