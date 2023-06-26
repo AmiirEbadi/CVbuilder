@@ -201,7 +201,6 @@ class ResumeView(LoginRequiredMixin, ProfileCompletionMixin, TemplateView):
     template_name = 'resume_template/default.html'
 
     def get_context_data(self, **kwargs):
-        print("hi")
         context = super().get_context_data()
         user_resume = Resume.objects.get(name=self.request.user)
         context['resume'] = user_resume
