@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [ 'localhost','127.0.0.1','django-app'  ]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com','https://*.127.0.0.1:1337','http://127.0.0.1:1337']
+CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com','https://*.127.0.0.1:8080','http://127.0.0.1:8080']
 
 # Application definition
 
@@ -99,7 +99,6 @@ DATABASES = {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'cvbuilder',
 #        'USER': 'postgres',
-#        'PASSWORD': 'amir2121',
 #        'HOST': 'localhost',
 #        'PORT': '5432',
 

@@ -5,7 +5,7 @@ from apps.resume.models import Template
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        t = Template.objects.create(name='default')
+        t, created = Template.objects.get_or_create(name='default')
         t.save()
         if User.objects.count() == 0:
             admin = User.objects.create_superuser(email="admin@admin.com", username="admin", password="admin")
